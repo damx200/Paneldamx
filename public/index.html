@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CREATE PANEL</title>
+<title>Create Panel</title>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #222;
+  color: #eee;
+}
+.container {
+  width: 300px;
+  margin: 50px auto;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 5px;
+}
+h1 {
+  text-align: center;
+  color: #007bff; /* Biru terang */
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"],
+select,
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  border-radius: 3px;
+  background-color: #444;
+  color: #eee;
+}
+input[type="button"] {
+  background-color: #673ab7; /* Ungu */
+  color: white;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-<h1>CREATE PANEL</h1>
-<label for="accessKey">Access Key:</label>
-<input type="text" id="accessKey" placeholder="Masukkan Access Key Anda"><br><br>
+<div class="container">
+  <h1>CREATE PANEL</h1>
+  <label for="accessKey">Access Key:</label>
+  <input type="text" id="accessKey" placeholder="Masukkan Access Key Anda">
+  <label for="panelType">Tipe Panel:</label>
+  <select id="panelType">
+    <option value="private">Private Panel</option>
+  </select>
+  <label for="username">Username:</label>
+  <input type="text" id="username" placeholder="Contoh: user_keren2025">
+  <label for="hostingPackage">Paket Hosting:</label>
+  <select id="hostingPackage">
+    <option value="1gb">1 GB</option>
+    <option value="2gb">2 GB</option>
+    <option value="3gb">3 GB</option>
+    <option value="4gb">4 GB</option>
+    <option value="5gb">5 GB</option>
+    <option value="6gb">6 GB</option>
+    <option value="7gb">7 GB</option>
+    <option value="8gb">8 GB</option>
+    <option value="9gb">9 GB</option>
+    <option value="10gb">10 GB</option>
+    <option value="unli">UNLIMITED</option>
+  </select>
+  <input type="button" value="CREATE PANEL" id="createPanelButton">
+</div>
 
-<label for="panelType">Tipe Panel:</label>
-<select id="panelType">
-  <option value="private">Private Panel</option>
-</select><br><br>
+<div id="panelContent"></div>
 
-<label for="username">Username:</label>
-<input type="text" id="username" placeholder="Contoh: user_keren2025"><br><br>
-
-<label for="hostingPackage">Paket Hosting:</label>
-<select id="hostingPackage">
-  <option value="1gb">1 GB</option>
-  <option value="2gb">2 GB</option>
-  <option value="3gb">3 GB</option>
-  <option value="4gb">4 GB</option>
-  <option value="5gb">5 GB</option>
-  <option value="6gb">6 GB</option>
-  <option value="7gb">7 GB</option>
-  <option value="8gb">8 GB</option>
-  <option value="9gb">9 GB</option>
-  <option value="10gb">10 GB</option>
-  <option value="unli">UNLIMITED</option>
-</select><br><br>
+<script>
+  // Tambahkan kod JavaScript di sini (seperti yang dibekalkan sebelum ini)
+</script>
 
 </body>
 </html>

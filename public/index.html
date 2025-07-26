@@ -17,15 +17,13 @@ body {
 }
 h1 {
   text-align: center;
-  color: #007bff; /* Biru terang */
+  color: #007bff;
 }
 label {
   display: block;
   margin-bottom: 5px;
 }
-input[type="text"],
-select,
-input[type="button"] {
+input[type="text"], select, input[type="button"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -35,9 +33,20 @@ input[type="button"] {
   color: #eee;
 }
 input[type="button"] {
-  background-color: #673ab7; /* Ungu */
+  background-color: #673ab7;
   color: white;
   cursor: pointer;
+}
+#panelDetails {
+  margin-top: 20px;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+}
+#panelDetails label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -56,23 +65,42 @@ input[type="button"] {
   <select id="hostingPackage">
     <option value="1gb">1 GB</option>
     <option value="2gb">2 GB</option>
-    <option value="3gb">3 GB</option>
-    <option value="4gb">4 GB</option>
-    <option value="5gb">5 GB</option>
-    <option value="6gb">6 GB</option>
-    <option value="7gb">7 GB</option>
-    <option value="8gb">8 GB</option>
-    <option value="9gb">9 GB</option>
-    <option value="10gb">10 GB</option>
     <option value="unli">UNLIMITED</option>
   </select>
   <input type="button" value="CREATE PANEL" id="createPanelButton">
 </div>
 
-<div id="panelContent"></div>
+<div id="panelDetails" style="display:none;">
+  <label>Username:</label><span id="usernameDisplay"></span><br>
+  <label>Password:</label><span id="passwordDisplay"></span><br>
+  <label>Paket:</label><span id="paketDisplay"></span><br>
+  <label>Tipe Panel:</label><span id="tipePanelDisplay"></span><br>
+  <label>ID User:</label><span id="idUserDisplay"></span><br>
+  <label>Server ID:</label><span id="serverIdDisplay"></span><br>
+  <label>Domain:</label><span id="domainDisplay"></span><br>
+</div>
 
 <script>
-  // Tambahkan kod JavaScript di sini (seperti yang dibekalkan sebelum ini)
+document.getElementById("createPanelButton").addEventListener("click", function() {
+    // Simulasi data - Gantikan dengan logik sebenar untuk mendapatkan data
+    const username = "pelerrr";
+    const password = "pelerrr5441ac";
+    const paket = document.getElementById("hostingPackage").value;
+    const tipePanel = document.getElementById("panelType").value;
+    const idUser = 48;
+    const serverId = 52;
+    const domain = "https://danxy.chizy.my.id";
+
+
+    document.getElementById("usernameDisplay").textContent = username;
+    document.getElementById("passwordDisplay").textContent = password;
+    document.getElementById("paketDisplay").textContent = paket;
+    document.getElementById("tipePanelDisplay").textContent = tipePanel;
+    document.getElementById("idUserDisplay").textContent = idUser;
+    document.getElementById("serverIdDisplay").textContent = serverId;
+    document.getElementById("domainDisplay").textContent = domain;
+    document.getElementById("panelDetails").style.display = "block";
+});
 </script>
 
 </body>

@@ -1,107 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Create Panel</title>
-<style>
-body {
-  font-family: sans-serif;
-  background-color: #222;
-  color: #eee;
-}
-.container {
-  width: 300px;
-  margin: 50px auto;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 5px;
-}
-h1 {
-  text-align: center;
-  color: #007bff;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-input[type="text"], select, input[type="button"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #555;
-  border-radius: 3px;
-  background-color: #444;
-  color: #eee;
-}
-input[type="button"] {
-  background-color: #673ab7;
-  color: white;
-  cursor: pointer;
-}
-#panelDetails {
-  margin-top: 20px;
-  background-color: #444;
-  padding: 10px;
-  border-radius: 5px;
-}
-#panelDetails label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-</style>
+  <title>Create Panel DAMX</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #000;
+      color: #eee;
+    }
+    .container {
+      width: 320px;
+      margin: 50px auto;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #0ff;
+    }
+    h1 {
+      text-align: center;
+      color: #0ff;
+      font-size: 1.8em;
+      animation: glitch 1s infinite;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      50% { text-shadow: -2px 0 red, 2px 0 blue; }
+      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"], select, input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background-color: #222;
+      color: #eee;
+    }
+    input[type="button"] {
+      background-color: #00bcd4;
+      cursor: pointer;
+    }
+    #panelDetails {
+      margin-top: 20px;
+      background-color: #111;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #00bcd4;
+    }
+    #panelDetails label {
+      font-weight: bold;
+      margin-top: 5px;
+      display: inline-block;
+      width: 100px;
+    }
+    span {
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <h1>CREATE PANEL</h1>
-  <label for="accessKey">Access Key:</label>
-  <input type="text" id="accessKey" placeholder="Masukkan Access Key Anda">
-  <label for="panelType">Tipe Panel:</label>
-  <select id="panelType">
-    <option value="private">Private Panel</option>
-  </select>
-  <label for="username">Username:</label>
-  <input type="text" id="username" placeholder="Contoh: user_keren2025">
-  <label for="hostingPackage">Paket Hosting:</label>
-  <select id="hostingPackage">
-    <option value="1gb">1 GB</option>
-    <option value="2gb">2 GB</option>
-    <option value="unli">UNLIMITED</option>
-  </select>
-  <input type="button" value="CREATE PANEL" id="createPanelButton">
-</div>
+  <div class="container">
+    <h1>CRATE PANEL DAMX</h1>
+    <label for="accessKey">Access Key:</label>
+    <input type="text" id="accessKey" placeholder="Masukkan Access Key Anda">
+    
+    <label for="panelType">Tipe Panel:</label>
+    <select id="panelType">
+      <option value="private">Private Panel</option>
+    </select>
+    
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Contoh: user_keren2025">
+    
+    <label for="hostingPackage">Paket Hosting:</label>
+    <select id="hostingPackage">
+      <option value="1gb">1 GB</option>
+      <option value="2gb">2 GB</option>
+      <option value="3gb">3 GB</option>
+      <option value="4gb">4 GB</option>
+      <option value="5gb">5 GB</option>
+      <option value="6gb">6 GB</option>
+      <option value="7gb">7 GB</option>
+      <option value="8gb">8 GB</option>
+      <option value="9gb">9 GB</option>
+      <option value="10gb">10 GB</option>
+      <option value="unli">UNLIMITED</option>
+    </select>
+    
+    <input type="button" value="CREATE PANEL" id="createPanelButton">
+  </div>
 
-<div id="panelDetails" style="display:none;">
-  <label>Username:</label><span id="usernameDisplay"></span><br>
-  <label>Password:</label><span id="passwordDisplay"></span><br>
-  <label>Paket:</label><span id="paketDisplay"></span><br>
-  <label>Tipe Panel:</label><span id="tipePanelDisplay"></span><br>
-  <label>ID User:</label><span id="idUserDisplay"></span><br>
-  <label>Server ID:</label><span id="serverIdDisplay"></span><br>
-  <label>Domain:</label><span id="domainDisplay"></span><br>
-</div>
+  <div id="panelDetails" style="display:none;" class="container">
+    <label>Username:</label><span id="usernameDisplay"></span><br>
+    <label>Password:</label><span id="passwordDisplay"></span><br>
+    <label>Paket:</label><span id="paketDisplay"></span><br>
+    <label>Tipe Panel:</label><span id="tipePanelDisplay"></span><br>
+    <label>ID User:</label><span id="idUserDisplay"></span><br>
+    <label>Server ID:</label><span id="serverIdDisplay"></span><br>
+    <label>Domain:</label><span id="domainDisplay"></span><br>
+  </div>
 
-<script>
-document.getElementById("createPanelButton").addEventListener("click", function() {
-    // Simulasi data - Gantikan dengan logik sebenar untuk mendapatkan data
-    const username = "pelerrr";
-    const password = "pelerrr5441ac";
-    const paket = document.getElementById("hostingPackage").value;
-    const tipePanel = document.getElementById("panelType").value;
-    const idUser = 48;
-    const serverId = 52;
-    const domain = "https://danxy.chizy.my.id";
+  <script>
+    document.getElementById("createPanelButton").addEventListener("click", function() {
+      const username = document.getElementById("username").value || "pelerrr";
+      const password = "pelerrr5441ac";
+      const paket = document.getElementById("hostingPackage").value;
+      const tipePanel = document.getElementById("panelType").value;
+      const idUser = Math.floor(Math.random() * 100) + 1;
+      const serverId = Math.floor(Math.random() * 100) + 1;
+      const domain = "https://danxy.chizy.my.id";
 
-
-    document.getElementById("usernameDisplay").textContent = username;
-    document.getElementById("passwordDisplay").textContent = password;
-    document.getElementById("paketDisplay").textContent = paket;
-    document.getElementById("tipePanelDisplay").textContent = tipePanel;
-    document.getElementById("idUserDisplay").textContent = idUser;
-    document.getElementById("serverIdDisplay").textContent = serverId;
-    document.getElementById("domainDisplay").textContent = domain;
-    document.getElementById("panelDetails").style.display = "block";
-});
-</script>
-
+      document.getElementById("usernameDisplay").textContent = username;
+      document.getElementById("passwordDisplay").textContent = password;
+      document.getElementById("paketDisplay").textContent = paket.toUpperCase();
+      document.getElementById("tipePanelDisplay").textContent = tipePanel;
+      document.getElementById("idUserDisplay").textContent = idUser;
+      document.getElementById("serverIdDisplay").textContent = serverId;
+      document.getElementById("domainDisplay").textContent = domain;
+      document.getElementById("panelDetails").style.display = "block";
+    });
+  </script>
 </body>
 </html>

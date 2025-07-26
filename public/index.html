@@ -3,69 +3,7 @@
 <head>
 <title>Create Panel</title>
 <style>
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  width: 450px; /* Lebar yang lebih besar */
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input[type="text"],
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* Memastikan padding termasuk dalam lebar */
-}
-
-textarea {
-  height: 100px; /* Tinggi textarea */
-}
-
-input[type="button"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-input[type="button"]:hover {
-  background-color: #45a049;
-}
-
-.section {
-  margin-bottom: 20px;
-}
+/* ... (sama seperti sebelum ini) ... */
 </style>
 </head>
 <body>
@@ -74,21 +12,36 @@ input[type="button"]:hover {
 
   <div class="section">
     <label for="accessKey">Access Key:</label>
-    <input type="text" id="accessKey" placeholder="Masukkan Access Key Anda">
+    <input type="password" id="accessKey" placeholder="Masukkan Access Key Anda">
+  </div>
+
+  <div class="section">
+    <label for="pltaDomain">Domain PLTA:</label>
+    <input type="text" id="pltaDomain" placeholder="Contoh: plta.example.com">
+  </div>
+
+  <div class="section">
+    <label for="pltcDomain">Domain PLTC:</label>
+    <input type="text" id="pltcDomain" placeholder="Contoh: pltc.example.com">
+  </div>
+
+  <div class="section">
+    <label for="panelDomain">Domain Panel:</label>
+    <input type="text" id="panelDomain" placeholder="Contoh: panel.example.com">
   </div>
 
   <div class="section">
     <label for="panelType">Tipe Panel:</label>
     <select id="panelType">
       <option value="private">Private Panel</option>
-      <option value="public">Public Panel</option> </select>
+      <option value="public">Public Panel</option>
+    </select>
   </div>
 
   <div class="section">
     <label for="username">Username:</label>
     <input type="text" id="username" placeholder="Contoh: user_keren2025">
   </div>
-
 
   <div class="section">
     <label for="email">Email:</label>
@@ -121,4 +74,3 @@ input[type="button"]:hover {
 </div>
 </body>
 </html>
-

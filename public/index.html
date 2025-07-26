@@ -4,87 +4,121 @@
 <title>Create Panel</title>
 <style>
 body {
-  font-family: sans-serif;
-  background-color: #222;
-  color: #eee;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .container {
-  width: 350px; /* Lebar sedikit lebih besar */
-  margin: 50px auto;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Menambah bayangan */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  width: 450px; /* Lebar yang lebih besar */
 }
 
 h1 {
   text-align: center;
-  color: #007bff;
-  margin-bottom: 20px; /* Jarak bawah tajuk */
+  color: #333;
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 input[type="text"],
-select {
+select,
+textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #555;
-  border-radius: 3px;
-  background-color: #444;
-  color: #eee;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Memastikan padding termasuk dalam lebar */
+}
+
+textarea {
+  height: 100px; /* Tinggi textarea */
 }
 
 input[type="button"] {
-  background-color: #673ab7;
+  background-color: #4CAF50;
   color: white;
-  cursor: pointer;
-  padding: 10px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 3px;
-  transition: background-color 0.3s ease; /* Peralihan warna */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 input[type="button"]:hover {
-  background-color: #8e44ad; /* Warna hover */
+  background-color: #45a049;
+}
+
+.section {
+  margin-bottom: 20px;
 }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>CREATE PANEL</h1>
-  <label for="accessKey">Access Key:</label>
-  <input type="text" id="accessKey" placeholder="Masukkan Access Key Anda">
 
-  <label for="panelType">Tipe Panel:</label>
-  <select id="panelType">
-    <option value="private">Private Panel</option>
+  <div class="section">
+    <label for="accessKey">Access Key:</label>
+    <input type="text" id="accessKey" placeholder="Masukkan Access Key Anda">
+  </div>
+
+  <div class="section">
+    <label for="panelType">Tipe Panel:</label>
+    <select id="panelType">
+      <option value="private">Private Panel</option>
+      <option value="public">Public Panel</option> </select>
+  </div>
+
+  <div class="section">
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Contoh: user_keren2025">
+  </div>
+
+
+  <div class="section">
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Alamat Email">
+  </div>
+
+  <div class="section">
+    <label for="hostingPackage">Paket Hosting:</label>
+    <select id="hostingPackage">
+      <option value="1gb">1 GB</option>
+      <option value="2gb">2 GB</option>
+      <option value="3gb">3 GB</option>
+      <option value="4gb">4 GB</option>
+      <option value="5gb">5 GB</option>
+      <option value="6gb">6 GB</option>
+      <option value="7gb">7 GB</option>
+      <option value="8gb">8 GB</option>
+      <option value="9gb">9 GB</option>
+      <option value="10gb">10 GB</option>
+      <option value="unli">UNLIMITED</option>
     </select>
+  </div>
 
-  <label for="username">Username:</label>
-  <input type="text" id="username" placeholder="Contoh: user_keren2025">
-
-  <label for="hostingPackage">Paket Hosting:</label>
-  <select id="hostingPackage">
-    <option value="1gb">1 GB</option>
-    <option value="2gb">2 GB</option>
-    <option value="3gb">3 GB</option>
-    <option value="4gb">4 GB</option>
-    <option value="5gb">5 GB</option>
-    <option value="6gb">6 GB</option>
-    <option value="7gb">7 GB</option>
-    <option value="8gb">8 GB</option>
-    <option value="9gb">9 GB</option>
-    <option value="10gb">10 GB</option>
-    <option value="unli">UNLI</option>
-  </select>
+  <div class="section">
+    <label for="additionalNotes">Catatan Tambahan:</label>
+    <textarea id="additionalNotes" placeholder="Tambahkan catatan jika perlu"></textarea>
+  </div>
 
   <input type="button" value="CREATE PANEL">
 </div>
 </body>
 </html>
+

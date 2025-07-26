@@ -1,107 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CREATE PANEL DAMX</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel Creator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #eee;
-      padding: 40px;
+      background: #f5f5f5;
+      padding: 20px;
       text-align: center;
     }
-
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
     input, select, button {
-      width: 300px;
+      width: 100%;
       padding: 10px;
-      margin: 10px;
-      background: #222;
-      border: 1px solid #555;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007bff;
       color: white;
-      border-radius: 5px;
+      border: none;
     }
-
-    .output {
-      margin-top: 30px;
-      background: #222;
-      padding: 20px;
-      border-radius: 5px;
-      display: none;
-    }
-
-    a {
-      color: #4caf50;
-      text-decoration: none;
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #e9ffe8;
+      color: green;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h2>Panel Creator</h2>
+    
+    <select id="panelType">
+      <option value="private">Private Panel</option>
+      <option value="public">Public Panel</option>
+    </select>
 
-  <h1>CREATE PANEL DAMX</h1>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="text" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <input type="text" id="key" placeholder="Masukkan Key Anda" value="DamXputz" required />
 
-  <input type="text" id="accessKey" placeholder="Masukkan Access Key (ptla_...)" required><br>
-  <input type="text" id="username" placeholder="Masukkan Username Panel" required><br>
+    <button onclick="createPanel()">Create Panel</button>
 
-  <select id="package">
-    <option value="1GB">1 GB</option>
-    <option value="2GB">2 GB</option>
-    <option value="3GB">3 GB</option>
-    <option value="5GB">5 GB</option>
-    <option value="10GB">10 GB</option>
-    <option value="UNLIMITED">UNLIMITED</option>
-  </select><br>
-
-  <button onclick="createPanel()">CREATE PANEL</button>
-
-  <div class="output" id="outputBox">
-    <h2>✅ Panel Berjaya Dibuat</h2>
-    <p><b>Username:</b> <span id="outUsername"></span></p>
-    <p><b>Password:</b> <span id="outPassword"></span></p>
-    <p><b>Login:</b> <a href="https://danxy.chizyy.my.id" target="_blank">https://danxy.chizyy.my.id</a></p>
+    <div id="response" class="result" style="display: none;"></div>
   </div>
 
   <script>
     async function createPanel() {
-      const accessKey = document.getElementById("accessKey").value.trim();
-      const username = document.getElementById("username").value.trim();
-      const package = document.getElementById("package").value;
-      const password = "damx_" + Math.random().toString(36).substring(2, 10);
-      const email = username + "@gmail.com"; // auto generate email
+      const type = document.getElementById("panelType").value;
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const key = document.getElementById("key").value;
 
-      if (!accessKey || !username) {
-        alert("Sila isi semua ruangan.");
-        return;
-      }
+      const url = type === "private"
+        ? "https://danxy.chizyy.my.id/admin/api"
+        : "https://restapi.mat.web.id/panel/public"; // anda boleh tukar URL panel public nanti
+
+      const responseBox = document.getElementById("response");
+      responseBox.style.display = "none";
+      responseBox.innerHTML = "Loading...";
 
       try {
-        const response = await fetch("https://danxy.chizyy.my.id/admin/api", {
+        const res = await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessKey}`
+            "Access-Key": key
           },
-          body: JSON.stringify({
-            username: username,
-            password: password,
-            email: email
-          })
+          body: JSON.stringify({ username, email, password })
         });
 
-        const data = await response.json();
-
-        if (response.ok) {
-          document.getElementById("outUsername").textContent = username;
-          document.getElementById("outPassword").textContent = password;
-          document.getElementById("outputBox").style.display = "block";
-        } else {
-          alert("Gagal buat panel: " + (data.message || "Unknown error"));
-        }
-
+        const data = await res.json();
+        responseBox.style.display = "block";
+        responseBox.innerHTML = `<strong>Status:</strong> ${data.message || JSON.stringify(data)}`;
       } catch (error) {
-        alert("Ralat sambungan: " + error.message);
+        responseBox.style.display = "block";
+        responseBox.innerHTML = "Error: " + error.message;
       }
     }
   </script>
-
 </body>
 </html>

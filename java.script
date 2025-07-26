@@ -1,0 +1,51 @@
+document.getElementById("createPanelButton").addEventListener("click", function() {
+  const accessKey = document.getElementById("accessKey").value;
+  const package = document.getElementById("hostingPackage").value;
+  const panelContentDiv = document.getElementById("panelContent");
+
+  // Uji kunci "damx"
+  if (accessKey === "damx") {
+    // Logik untuk memilih panel berdasarkan pakej menggunakan switch
+    let panelContent = "";
+    switch (package) {
+      case "1gb":
+        panelContent = "<h1>Panel 1GB</h1><p>Kandungan panel 1GB</p>";
+        break;
+      case "2gb":
+        panelContent = "<h1>Panel 2GB</h1><p>Kandungan panel 2GB</p>";
+        break;
+      case "3gb":
+        panelContent = "<h1>Panel 3GB</h1><p>Kandungan panel 3GB</p>";
+        break;
+      case "4gb":
+        panelContent = "<h1>Panel 4GB</h1><p>Kandungan panel 4GB</p>";
+        break;
+      case "5gb":
+        panelContent = "<h1>Panel 5GB</h1><p>Kandungan panel 5GB</p>";
+        break;
+      case "6gb":
+        panelContent = "<h1>Panel 6GB</h1><p>Kandungan panel 6GB</p>";
+        break;
+      case "7gb":
+        panelContent = "<h1>Panel 7GB</h1><p>Kandungan panel 7GB</p>";
+        break;
+      case "8gb":
+        panelContent = "<h1>Panel 8GB</h1><p>Kandungan panel 8GB</p>";
+        break;
+      case "9gb":
+        panelContent = "<h1>Panel 9GB</h1><p>Kandungan panel 9GB</p>";
+        break;
+      case "10gb":
+        panelContent = "<h1>Panel 10GB</h1><p>Kandungan panel 10GB</p>";
+        break;
+      case "unli":
+        panelContent = "<h1>Panel UNLIMITED</h1><p>Kandungan panel UNLIMITED</p>";
+        break;
+      default:
+        panelContent = "<p>Pakej tidak sah.</p>";
+    }
+    panelContentDiv.innerHTML = panelContent;
+  } else {
+    panelContentDiv.innerHTML = "<p>Kunci akses tidak sah.</p>";
+  }
+});
